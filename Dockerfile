@@ -66,5 +66,9 @@ EXPOSE 8080
 
 #CMD 'php artisan serve --port=8080 --host=0.0.0.0'
 
+ENV APP_VERSION=$VERSION
+ENV BUILD_DATE=$BUILD_DATE
+ENV GIT_COMMIT_HASH=$SOURCE_COMMIT
+
 #USER root
 CMD "/usr/bin/supervisord"
