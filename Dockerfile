@@ -1,5 +1,10 @@
 #FROM khanhicetea/php7-fpm-docker
 FROM ubuntu:16.04
+
+ARG VERSION=latest
+ARG BUILD_DATE=unknown
+ARG SOURCE_COMMIT=HEAD  
+
 ENV DEBIAN_FRONTEND noninteractive
 
 
