@@ -1,6 +1,6 @@
 # Timeline templates
 
-A timeline template is used to represent specific regulations of a programme in the PGR system. Whenever a student enrols, they will usually be assigned to a specific version of regulations, requiring them to complete [[PGR milestones]] at set deadline within the PGR journey. A timeline template is the representation of these deadlines and allows to roll out all compulsory milestones for a student's programme automatically. 
+A timeline template is used to represent specific regulations of a programme in the PGR system. Whenever a student enrols, they will usually be assigned to a specific version of regulations, requiring them to complete [PGR milestones](milestone) at set deadline within the PGR journey. A timeline template is the representation of these deadlines and allows to roll out all compulsory milestones for a student's programme automatically. 
 
 A few __important notes and disclaimers__ on this process:
 
