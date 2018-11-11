@@ -1,3 +1,9 @@
+---
+title: Guide for Students
+menus: header
+
+---
+
 # A short Guide for Students
 
 ## Login
@@ -7,7 +13,7 @@
 
 ## Your Dashboard
 
-After logging in the dashboard directly shows all upcoming, recently submitted, and overdue milestones Also, you can check all the data the system holds in your record. Clicking on "View All Milestones" takes you to your [timeline](images/timeline.png)
+After logging in the dashboard directly shows all upcoming, recently submitted, and overdue milestones. Also, you can check all the data the system holds in your record. Clicking on "View All Milestones" takes you to your [timeline](images/timeline.png)
 <br><a href="images/student_dashboard.png"><img src="images/student_dashboard.png" height="200"></a>
 
 
