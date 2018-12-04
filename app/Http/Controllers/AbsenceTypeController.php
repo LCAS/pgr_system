@@ -30,13 +30,13 @@ class AbsenceTypeController extends Controller
             return Datatables::eloquent($absencetypes)
               ->editColumn('interuption', '{{$interuption ? "Yes" : "No" }}')
               ->addColumn('editaction', function (AbsenceType $at) {
-                  return '<form method="GET" action="'.route('settings.absence-type.edit', $at->id).'"
+                  return '<form method="GET" action="'.route('settings.absence-type.edit', $at->slug()).'"
                   accept-charset="UTF-8" class="delete-form">
                   <button class="btn btn-warning">
                   <i class="fa fa-pencil"></i></button> </form>';
               })
                 ->addColumn('deleteaction', function (AbsenceType $at) {
-                    return '<form method="POST" action="'.route('settings.absence-type.destroy', $at->id).'"
+                    return '<form method="POST" action="'.route('settings.absence-type.destroy', $at->slug()).'"
                   accept-charset="UTF-8" class="delete-form">
                   <input type="hidden" name="_method" value="DELETE">'.
                   csrf_field().'<button class="btn btn-danger">
@@ -121,9 +121,9 @@ class AbsenceTypeController extends Controller
             ]);
     }
 
-    public function restore($id)
+    public function restore($slug)
     {
-        $abs = AbsenceType::withTrashed()->findOrFail($id);
+        $abs = AbsenceType::withTrashed()->findOrFail(AbsenceType::decodeSlug($slug));
 
         $this->authorise('manage', $abs);
 
