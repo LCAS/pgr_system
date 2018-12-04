@@ -22,7 +22,7 @@ class AbsenceTypeController extends Controller
         if ($request->ajax()) {
             $absencetypes = AbsenceType::select('absence_types.*')->withCount([
             'absence',
-            'absence AS currentabsence' => function ($query) {
+            'absence AS currentabsence_count' => function ($query) {
                 $query->where('from', '<=', Carbon::now())
                       ->where('to', '>=', Carbon::now());
             }, ]);
