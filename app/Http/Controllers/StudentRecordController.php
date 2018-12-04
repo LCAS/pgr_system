@@ -128,7 +128,6 @@ class StudentRecordController extends Controller
             return $this->absences_controls($this->absences($record), $student)->make(true);
         }
 
-        $record = $student->record();
         $overdue = $record->timeline->filter->isOverdue();
         $upcoming = $record->timeline->filter->isUpcoming();
         $awaiting = $record->timeline->filter->isAwaitingAmendments();
