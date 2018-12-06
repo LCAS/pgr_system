@@ -215,7 +215,7 @@ class TimelineTemplateController extends Controller
             $tt->copyToStudent($record);
 
             return redirect()->route('student.record.show',
-              [$student->university_id, $record->id])
+              [$student->university_id, $record->slug()])
               ->with('flash', [
                 'message' => 'Milestones in '.$tt->name.' successfully copied to '.$student->name.'\'s record',
                 'type' => 'success',
@@ -223,7 +223,7 @@ class TimelineTemplateController extends Controller
         }
 
         return redirect()->route('student.record.show',
-            [$student->university_id, $record->id])
+            [$student->university_id, $record->slug()])
             ->with('flash', [
               'message' => 'Error: Something went wrong! please try again',
               'type' => 'danger',
