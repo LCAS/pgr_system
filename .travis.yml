@@ -6,7 +6,10 @@ php:
 
 services:
   - mysql
+<<<<<<< HEAD
   - docker
+=======
+>>>>>>> de322b2b4ae15f8cf54bf34c74dd213459f2379b
 
 before_script:
   - cp .env.travis .env

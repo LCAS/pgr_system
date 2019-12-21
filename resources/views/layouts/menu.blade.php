@@ -22,8 +22,8 @@
       </li>
       <li>
         <a href="{{ route('student.submitted') }}">
-          <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-          <span>All Submitted</span>
+          <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+          <span>Awaiting Review</span>
         </a>
       </li>
       <li>

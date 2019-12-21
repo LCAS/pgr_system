@@ -140,6 +140,17 @@ class Milestone extends Model
             $this->approvals->isEmpty();
     }
 
+    public function scopeUnderReview($query)
+    {
+        return $query->submitted()->doesntHave('approvals');
+    }
+
+    public function isUnderReview()
+    {
+        return $this->isSubmitted() &&
+            $this->approvals->isEmpty();
+    }
+
     public function scopeUpcoming($query)
     {
         return $query->notSubmitted()->where('due_date', '>=', Carbon::today())
