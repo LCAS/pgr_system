@@ -7,7 +7,7 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-      - /srv/pgr/db:/var/lib/mysql
+      - /srv/pgr-test/db:/var/lib/mysql
     expose:
       - "3306"
     environment:
@@ -28,16 +28,6 @@ services:
       - 19443:443
     volumes:
       - .:/var/www/html/pgr
-
-  mysqldump:
-    image: schnitzler/mysqldump
-    volumes:
-      - ./db-backup.sh:/etc/periodic/daily/backup
-      - /srv/pgr/storage:/backup
-    command: ["-l", "8", "-d", "8"]
-    environment:
-      MYSQL_HOST: db
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
-      MYSQL_DATABASE: pgr_saml
+      - /srv/pgr-test/storage:/var/www/html/pgr/storage
+      - /srv/pgr-test/config:/srv/config
 
