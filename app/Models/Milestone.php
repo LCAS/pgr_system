@@ -142,7 +142,8 @@ class Milestone extends Model
 
     public function scopeUnderReview($query)
     {
-        return $query->submitted()->doesntHave('approvals');
+        return $query->submitted()->where('submitted_date', '<=',
+            Carbon::today())->doesntHave('approvals');
     }
 
     public function isUnderReview()
