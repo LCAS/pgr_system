@@ -61,9 +61,14 @@ class DueTodayReminder extends Notification implements ShouldQueue
             ->line('Programme: '.$this->record->programme->name)
             ->line('Milestone: '.$this->milestone->name)
             ->line('')
-            ->line('This email is to remind you that the milestone "'.$this->milestone->name.'" is due by the end of today.')
+            ->line('This email is to remind you that the milestone "'.$this->milestone->name.'" is due TODAY.')
             ->action('View Milestone', $url)
+            ->line('Please ensure timely submission of the requested documentation. '.
+                    'If you have any questions, please contact your school\'s PGR administrator '.
+                    'or refer to the "Postgraduate Research Degrees Regulations" at https://secretariat.blogs.lincoln.ac.uk/university-regulations/. '.
+                    'Failure to submit the required documentation and form(s) can ultimately result in '.
+                    'withdrawal from your PGR studies.')
             ->line('Thanks!')
-            ->subject('[PGR] Reminder: '.$this->milestone->name.' is due today!');
+            ->subject('[PGR] Urgent Reminder: '.$this->milestone->name.' is due today');
     }
 }
