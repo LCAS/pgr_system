@@ -68,7 +68,13 @@ class StartTodayReminder extends Notification implements ShouldQueue
             ->line('')
             ->line('This email is to remind you that the milestone "'.$this->milestone->name.'" is due in '.$duediff.'.')
             ->action('View Milestone', $url)
+            ->line('Please ensure timely submission of the requested documentation. '.
+                'If you have any questions, please contact your school\'s PGR administrator '.
+                'or refer to the "Postgraduate Research Degrees Regulations" at https://secretariat.blogs.lincoln.ac.uk/university-regulations/. '.
+                'Failure to submit documentation for PGR milestones by the set deadline can ultimately result in '.
+                'withdrawal from your PGR studies.')
+            ->line('')
             ->line('Thanks!')
-            ->subject('[PGR] Reminder: '.$this->milestone->name.' is due in '.$duediff.'.');
+            ->subject('[PGR] Reminder: '.$this->milestone->name.' is due in '.$duediff);
     }
 }
