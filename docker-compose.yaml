@@ -14,13 +14,8 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
-<<<<<<< HEAD
   pgr-test:
     image: lcasuol/pgr_system:pgr-test
-=======
-  pgr:
-    image: lcasuol/pgr_system:0.0.16
->>>>>>> a751c0416c7091f7d3a233d8ab9ba5f8f446165c
     build:
       context: .
       dockerfile: Dockerfile
