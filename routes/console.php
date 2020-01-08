@@ -5,6 +5,8 @@ use App\Models\Milestone;
 use App\Models\StudentRecord;
 use App\Notifications\DueTodayReminder;
 use App\Notifications\StartTodayReminder;
+use Illuminate\Notifications\AnonymousNotifiable;
+
 
 if (config('app.proxy_url')) {
     URL::forceRootUrl(config('app.proxy_url'));
@@ -29,6 +31,15 @@ Artisan::command('reminders:starttoday', function () {
                 $m->student->student, $m->student, $m
             )
         );
+        /*
+        if (config('app.all_notifications_email')) {   
+            (new AnonymousNotifiable())->route('mail', config('app.all_notifications_email'))->notify(
+                new StartTodayReminder(
+                    $m->student->student, $m->student, $m
+                )                    
+            );
+        }
+        */
     });
 })->describe('Send upcoming milestone reminders');
 
@@ -51,6 +62,15 @@ Artisan::command('reminders:duetoday', function () {
                     $m->student->student, $m->student, $m
                 )
             );
+            /*
+            if (config('app.all_notifications_email')) {   
+                (new AnonymousNotifiable())->route('mail', config('app.all_notifications_email'))->notify(
+                    new DueTodayReminder(
+                        $m->student->student, $m->student, $m
+                    )                    
+                );
+            }
+            */
         }
     );
 })->describe('Send upcoming milestone reminders');
