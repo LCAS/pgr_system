@@ -2,13 +2,13 @@
 
 namespace App\Notifications;
 
-use App\Models\Student;
 use App\Models\Milestone;
+use App\Models\Student;
 use App\Models\StudentRecord;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class DueTodayReminder extends Notification implements ShouldQueue
 {
@@ -52,8 +52,8 @@ class DueTodayReminder extends Notification implements ShouldQueue
     {
         $url = route('student.record.milestone.show',
             [$this->student->university_id,
-            $this->record->slug(),
-            $this->milestone->slug(),
+                $this->record->slug(),
+                $this->milestone->slug(),
             ]);
 
         $msg = (new MailMessage)
@@ -71,7 +71,7 @@ class DueTodayReminder extends Notification implements ShouldQueue
             ->line('Thanks!')
             ->subject('[PGR] Urgent Reminder: '.$this->milestone->name.' is due today');
 
-        if (config('app.all_notifications_email')) {   
+        if (config('app.all_notifications_email')) {
             $msg->bcc(config('app.all_notifications_email'));
         }
 
