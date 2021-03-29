@@ -33,6 +33,7 @@ get into tinker: `php artisan tinker`
 * count the total of the milestones of this type: `$mst->milestones->count();`
 * count the total of the milestones of this type not submitted yet: `$mst->milestones()->where('submitted_date', null)->count();`
 * delete all milestones that are not submitted of that type: `$mst->milestones()->where('submitted_date', null)->delete();`
+* count all milestones of a type that have no approvals yet: `$mst->milestones()->has('approvals','<','1')->count()`
 
 
 ## Development
