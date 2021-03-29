@@ -27,6 +27,12 @@ get into tinker: `php artisan tinker`
     * `$user->assignElevatedAdminPermissions();`
   * list abilities: `$abilities = $user->getAbilities();`
   
+## Cleaning Out the DB
+
+* find a specific milestonetype: `$mst = App\Models\MilestoneType::where('name', "PGR Study Plan")->first();`
+* count the total of the milestones of this type: `$mst->milestones->count();`
+* count the total of the milestones of this type not submitted yet: `$mst->milestones()->where('submitted_date', null)->count();`
+* delete all milestones that are not submitted of that type: `$mst->milestones()->where('submitted_date', null)->delete();`
 
 
 ## Development
